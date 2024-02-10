@@ -7,6 +7,7 @@ import {
   RootLayout,
   Sidebar
 } from '@/components'
+
 import { useRef } from 'react'
 import { MarkdownEditor } from './components/MarkdownEditor'
 
@@ -26,7 +27,7 @@ const App = () => {
           <NotePreviewList className="mt-3 space-y-1" onSelect={resetScroll} />
         </Sidebar>
         <Content ref={contentContainerRef} className="border-l bg-zinc-800 border-l-white/20">
-          <FloatingNoteTitle className="pt-2" />
+          <FloatingNoteTitle className="pt-1" />
           <MarkdownEditor />
         </Content>
       </RootLayout>

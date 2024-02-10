@@ -1,4 +1,6 @@
+import { getNotes, readNote, writeNote } from '@/lib'
 import { electronApp, is, optimizer } from '@electron-toolkit/utils'
+import { GetNotes, ReadNote, WriteNote } from '@shared/types'
 import { BrowserWindow, app, ipcMain, shell } from 'electron'
 import { join } from 'path'
 import icon from '../../resources/icon.png?asset'
@@ -18,7 +20,7 @@ function createWindow(): void {
     visualEffectState: 'active',
     titleBarStyle: 'hidden',
     titleBarOverlay: {
-      color: '#3F3F46',
+      color: '#52525b',
       symbolColor: '#fff',
       height: 35
     },
@@ -63,6 +65,12 @@ app.whenReady().then(() => {
 
   // IPC test
   ipcMain.on('ping', () => console.log('pong'))
+
+  ipcMain.handle('getNotes', (_, ...args: Parameters<GetNotes>) => getNotes(...args))
+
+  ipcMain.handle('readNote', (_, ...args: Parameters<ReadNote>) => readNote(...args))
+
+  ipcMain.handle('writeNote', (_, ...args: Parameters<WriteNote>) => writeNote(...args))
 
   createWindow()
 
