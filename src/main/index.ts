@@ -6,11 +6,22 @@ import icon from '../../resources/icon.png?asset'
 function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 900,
-    height: 670,
+    width: 680,
+    height: 500,
     show: false,
     autoHideMenuBar: true,
     ...(process.platform === 'linux' ? { icon } : {}),
+    center: true,
+    title: 'NoteMark',
+    frame: false,
+    vibrancy: 'under-window',
+    visualEffectState: 'active',
+    titleBarStyle: 'hidden',
+    titleBarOverlay: {
+      color: '#3F3F46',
+      symbolColor: '#fff',
+      height: 35
+    },
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
       sandbox: true,
