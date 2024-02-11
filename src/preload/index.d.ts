@@ -1,3 +1,5 @@
+export {}
+
 declare global {
   interface Window {
     // electron: ElectronAPI
@@ -6,6 +8,8 @@ declare global {
       getNotes: GetNotes
       readNote: ReadNote
       writeNote: WriteNote
+      createNote: CreateNote
+      deleteNote: DeleteNote
     }
   }
 }
