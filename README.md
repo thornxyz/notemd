@@ -1,4 +1,4 @@
-# note-mark
+# notemd
 
 An Electron application with React and TypeScript
 
