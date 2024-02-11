@@ -8,13 +8,13 @@ import {
   Sidebar
 } from '@/components'
 
-import { useRef } from 'react'
+import React, { useRef } from 'react'
 import { MarkdownEditor } from './components/MarkdownEditor'
 
-const App = () => {
+const App: React.FC = () => {
   const contentContainerRef = useRef<HTMLDivElement>(null)
 
-  const resetScroll = () => {
+  const resetScroll = (): void => {
     contentContainerRef.current?.scrollTo(0, 0)
   }
 

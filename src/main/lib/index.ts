@@ -8,7 +8,7 @@ import { homedir } from 'os'
 import * as path from 'path'
 import welcomeNote from '../../../resources/welcomeNote.md?asset'
 
-export const getRootDir = () => {
+export const getRootDir = (): string => {
   return path.join(homedir(), `${appDirectoryName}`)
 }
 

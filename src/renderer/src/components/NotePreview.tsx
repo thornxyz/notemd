@@ -13,7 +13,7 @@ export const NotePreview = ({
   isActive = false,
   className,
   ...props
-}: NotePreviewProps) => {
+}: NotePreviewProps): JSX.Element => {
   const date = formatDateFromMs(lastEditTime)
   return (
     <div

@@ -6,7 +6,16 @@ import { useAtomValue, useSetAtom } from 'jotai'
 import { throttle } from 'lodash'
 import { useRef } from 'react'
 
-export const useMarkdownEditor = () => {
+export const useMarkdownEditor = (): {
+  editorRef: React.RefObject<MDXEditorMethods>
+  selectedNote: {
+    content: string
+    title: string
+    lastEditTime: number
+  } | null
+  handleAutoSaving: ((markdown: string) => void) | undefined
+  handleBlur: () => Promise<void>
+} => {
   const selectedNote = useAtomValue(selectedNoteAtom)
   const saveNote = useSetAtom(saveNoteAtom)
   const editorRef = useRef<MDXEditorMethods>(null)
@@ -24,7 +33,7 @@ export const useMarkdownEditor = () => {
     }
   )
 
-  const handleBlur = async () => {
+  const handleBlur = async (): Promise<void> => {
     if (!selectedNote) return
 
     handleAutoSaving.cancel()

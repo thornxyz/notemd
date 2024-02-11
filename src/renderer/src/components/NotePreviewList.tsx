@@ -8,7 +8,11 @@ export type NotePreviewListProps = ComponentProps<'ul'> & {
   onSelect?: () => void
 }
 
-export const NotePreviewList = ({ onSelect, className, ...props }: NotePreviewListProps) => {
+export const NotePreviewList = ({
+  onSelect,
+  className,
+  ...props
+}: NotePreviewListProps): JSX.Element | null => {
   const { notes, selectedNoteIndex, handleNoteSelect } = useNotesList({ onSelect })
 
   if (!notes) return null

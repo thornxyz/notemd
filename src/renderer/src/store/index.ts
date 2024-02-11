@@ -2,7 +2,7 @@ import { NoteContent, NoteInfo } from '@shared/models'
 import { atom } from 'jotai'
 import { unwrap } from 'jotai/utils'
 
-const loadNotes = async () => {
+const loadNotes = async (): Promise<NoteInfo[]> => {
   const notes = await window.context.getNotes()
 
   return notes.sort((a, b) => b.lastEditTime - a.lastEditTime)

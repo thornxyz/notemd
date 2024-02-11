@@ -3,10 +3,10 @@ import { useSetAtom } from 'jotai'
 import { FaRegTrashCan } from 'react-icons/fa6'
 import { ActionButton, ActionButtonProps } from './ActionButton'
 
-export const DeleteNoteButton = ({ ...props }: ActionButtonProps) => {
+export const DeleteNoteButton = ({ ...props }: ActionButtonProps): JSX.Element => {
   const deleteNote = useSetAtom(deleteNoteAtom)
 
-  const handleDelete = async () => {
+  const handleDelete = async (): Promise<void> => {
     await deleteNote()
   }
 
