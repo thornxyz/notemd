@@ -7,8 +7,8 @@ const dateFormatter = new Intl.DateTimeFormat(window.context.locale, {
   timeZone: 'Asia/Kolkata'
 })
 
-export const formatDateFromMs = (ms: number) => dateFormatter.format(ms)
+export const formatDateFromMs = (ms: number): string => dateFormatter.format(ms)
 
-export const cn = (...args: ClassValue[]) => {
+export const cn = (...args: ClassValue[]): string => {
   return twMerge(clsx(...args))
 }
